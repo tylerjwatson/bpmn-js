@@ -9,9 +9,9 @@ import replaceModule from 'lib/features/replace';
 import { getMid } from 'diagram-js/lib/layout/LayoutUtil';
 
 
-describe('features/modeling/behavior - sub process', function() {
+describe('features/modeling/behavior - sub process position adjustment', function() {
 
-  var diagramXML = require('./SubProcessBehavior.bpmn');
+  var diagramXML = require('./SubProcessBehavior.position-adjustment.bpmn');
 
   beforeEach(bootstrapModeler(diagramXML, {
     modules: [
