@@ -24,21 +24,27 @@ describe('features/modeling/behavior - subprocess start event', function() {
   }));
 
 
-  describe('create', function() {
+  // TODO: Make this actually create from palette
+  describe('create from palette', function() {
 
     it('should contain start event child', inject(
       function(canvas, modeling) {
 
         // given
         var rootElement = canvas.getRootElement(),
+            shapeType = { type: 'bpmn:SubProcess', isExpanded: true },
+            position = { x: 650, y: 150 },
+            hints = { createdFrom: 'palette' },
             expandedSubProcess,
             startEvents;
 
         // when
-        expandedSubProcess = modeling.createShape({
-          type: 'bpmn:SubProcess',
-          isExpanded: true
-        }, { x: 650, y: 150 }, rootElement);
+        expandedSubProcess = modeling.createShape(
+          shapeType,
+          position,
+          rootElement,
+          hints
+        );
 
         // then
         startEvents = getChildStartEvents(expandedSubProcess);
